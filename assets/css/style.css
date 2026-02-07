@@ -49,6 +49,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body {
@@ -585,7 +586,7 @@ img {
   .seeds-rt,
   .seeds-lb,
   .seeds-rb {
-    display: none;
+    display: none !important;
   }
 
   .badges-row {
