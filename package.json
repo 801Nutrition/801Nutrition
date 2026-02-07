@@ -1,0 +1,24 @@
+{
+  "name": "801nutrition",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/801Nutrition/801Nutrition.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/801Nutrition/801Nutrition/issues"
+  },
+  "homepage": "https://github.com/801Nutrition/801Nutrition#readme",
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}
