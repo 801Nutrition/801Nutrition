@@ -546,15 +546,61 @@ img {
    10. Media Query — Mobile (≤680px)
    -------------------------------------------------------------------------- */
 @media (max-width: 680px) {
+  .label-hero {
+    overflow-x: hidden;
+  }
+
+  .top-bar img,
+  .brand-center .stripes,
+  .brand-center .logo-801,
+  .provegan,
+  .flavor-bar img {
+    width: 90vw;
+    height: auto;
+  }
+
+  .brand-center .stripes {
+    height: auto;
+  }
+
+  .stats-bar,
+  .mid-section,
+  .flavor-bar,
+  .badges-area,
+  .seeds-area {
+    max-width: 100%;
+  }
+
+  .badges-area::before,
+  .badges-stripes {
+    width: calc(100% - 32px);
+  }
+
+  .badges-area::before {
+    left: 16px;
+    transform: none;
+  }
+
+  .seeds-lt,
+  .seeds-rt,
+  .seeds-lb,
+  .seeds-rb {
+    display: none;
+  }
+
+  .badges-row {
+    padding: 0 10%;
+  }
+
   .cards .container {
     grid-template-columns: 1fr;
   }
 
-  .brand-center {
-    padding: 0 18%;
+  .stats-bar img:first-child {
+    transform: translateX(-12px);
   }
 
-  .badges-row {
-    padding: 0 15%;
+  .stats-bar img:last-child {
+    transform: translateX(12px);
   }
 }
