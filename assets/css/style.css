@@ -1,0 +1,560 @@
+/* ==========================================================================
+   801 Nutrition — Main Stylesheet
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Custom Properties (Design Tokens)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colors */
+  --color-bg: #f5f0e8;
+  --color-accent: #f0e87c;
+  --color-gold: #ac8b49;
+  --color-text: #2a2a2a;
+  --color-text-muted: #5a5030;
+  --color-cards-bg: #1a1a2e;
+  --color-footer-bg: #111;
+  --color-copyright-bg: #0a0a0a;
+
+  /* Card gradients */
+  --card-navy-start: #1e3050;
+  --card-navy-end: #162440;
+  --card-red-start: #6b1a28;
+  --card-red-end: #4a1018;
+  --card-teal-start: #1a5050;
+  --card-teal-end: #123838;
+
+  /* Typography */
+  --font-heading: 'Oswald', sans-serif;
+  --font-display: 'Abril Fatface', serif;
+  --font-body: Arial, sans-serif;
+
+  /* Layout */
+  --max-width: 1100px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset / Base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--color-bg);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* --------------------------------------------------------------------------
+   3. Layout
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Label Hero
+   -------------------------------------------------------------------------- */
+.label-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--color-bg);
+  overflow: visible;
+}
+
+/* 5a. Top banner */
+.top-bar {
+  background: var(--color-accent);
+  width: 100%;
+  text-align: center;
+  padding: 32px 20px;
+}
+
+.top-bar img {
+  width: 542px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* 5b. Brand area */
+.brand-area {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  padding: 0;
+}
+
+.brand-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.brand-center .stripes {
+  width: 510px;
+  height: 86px;
+  object-fit: fill;
+  background: var(--color-accent);
+  padding: 0 16px;
+  margin-bottom: 10px;
+}
+
+.brand-center .logo-801 {
+  width: 542px;
+  height: 313px;
+}
+
+/* 5c. Seeds area (provegan + stats + stripes) */
+.seeds-area {
+  position: relative;
+  width: 100%;
+  max-width: 864px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible;
+}
+
+.seeds-area__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.seeds-lt {
+  position: absolute;
+  right: calc(50% + 271px);
+  top: 0;
+  height: 100%;
+  width: 158px;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.seeds-rt {
+  position: absolute;
+  left: calc(50% + 271px);
+  top: 0;
+  height: 100%;
+  width: 164px;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.provegan {
+  width: 490px;
+  margin-top: 8px;
+}
+
+/* 5d. Stats bar */
+.stats-bar {
+  background: var(--color-accent);
+  width: 100%;
+  max-width: 542px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(16px, 5vw, 40px);
+  padding: 20px 30px 14px;
+  border-radius: 6px 6px 0 0;
+  margin-top: 4px;
+}
+
+.stats-bar img {
+  height: clamp(50px, 10vw, 72px);
+  width: auto;
+}
+
+.stats-bar img:first-child {
+  transform: translateX(-24px);
+}
+
+.stats-bar img:last-child {
+  transform: translateX(24px);
+}
+
+/* 5e. Mid section (seal + stripes) */
+.mid-section {
+  background: var(--color-accent);
+  width: 100%;
+  max-width: 542px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 175px;
+  padding: 0 30px;
+  overflow: visible;
+}
+
+.mid-section .side-stripes {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  width: calc(100% - 32px);
+  height: 100%;
+  object-fit: fill;
+}
+
+.mid-section .seal {
+  height: clamp(117px, 21vw, 170px);
+  width: auto;
+  position: relative;
+  z-index: 1;
+  transform: translateY(18px);
+  border-radius: 50%;
+  background: var(--color-accent);
+  padding: 8px;
+  box-sizing: content-box;
+}
+
+/* 5f. Flavor bar */
+.flavor-bar {
+  background: var(--color-accent);
+  width: 100%;
+  max-width: 864px;
+  text-align: center;
+  padding: 30px 20px 14px;
+}
+
+.flavor-bar img {
+  width: 600px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* 5g. Badges area */
+.badges-area {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 88px;
+  overflow: visible;
+}
+
+.badges-area::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 542px;
+  background: var(--color-accent);
+}
+
+.badges-stripes {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(542px - 32px);
+  height: 100%;
+  object-fit: fill;
+  z-index: 0;
+}
+
+.seeds-lb {
+  position: absolute;
+  right: calc(50% + 271px);
+  top: 0;
+  height: 100%;
+  width: auto;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.seeds-rb {
+  position: absolute;
+  left: calc(50% + 271px);
+  top: 0;
+  height: 100%;
+  width: auto;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.badges-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(8px, 3vw, 24px);
+  position: relative;
+  z-index: 2;
+  padding: 0 20%;
+  transform: translateY(-20px);
+}
+
+.badges-row img {
+  height: clamp(36px, 7.2vw, 54px);
+  width: auto;
+  background: var(--color-accent);
+  border-radius: 50%;
+  padding: 5px;
+  box-sizing: content-box;
+}
+
+/* --------------------------------------------------------------------------
+   6. Transition Wave
+   -------------------------------------------------------------------------- */
+.transition-wave {
+  width: 100%;
+  line-height: 0;
+  margin-top: -1px;
+}
+
+.transition-wave svg {
+  display: block;
+  width: 100%;
+  height: 60px;
+}
+
+/* --------------------------------------------------------------------------
+   7. Cards Section
+   -------------------------------------------------------------------------- */
+.cards {
+  padding: 60px 20px 80px;
+  background: var(--color-cards-bg);
+}
+
+.cards .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.card__image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.card__body {
+  padding: 28px 24px 32px;
+  flex: 1;
+}
+
+.card--navy .card__body {
+  background: linear-gradient(180deg, var(--card-navy-start), var(--card-navy-end));
+}
+
+.card--red .card__body {
+  background: linear-gradient(180deg, var(--card-red-start), var(--card-red-end));
+}
+
+.card--teal .card__body {
+  background: linear-gradient(180deg, var(--card-teal-start), var(--card-teal-end));
+}
+
+.card__title {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.card__title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+.card__text {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+.card__text p {
+  margin-bottom: 12px;
+}
+
+.card__text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card__text li {
+  padding: 6px 0 6px 20px;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card__text li:last-child {
+  border-bottom: none;
+}
+
+.card__text li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+
+.card__text b {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   8. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: var(--color-footer-bg);
+  color: #ccc;
+  padding: 50px 20px 30px;
+  text-align: center;
+}
+
+.site-footer .container {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.footer__top {
+  margin-bottom: 30px;
+}
+
+.footer__badge {
+  height: 208px;
+  width: auto;
+  margin: 0 auto 16px;
+}
+
+.footer__logo {
+  height: 104px;
+  width: auto;
+  margin: 0 auto 14px;
+}
+
+.footer__mission {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.footer__info {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+  margin-top: 20px;
+}
+
+.footer__label {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+}
+
+.footer__address {
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer__address a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.footer__address a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   9. Copyright
+   -------------------------------------------------------------------------- */
+.copyright {
+  background: var(--color-copyright-bg);
+  text-align: center;
+  padding: 14px 20px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   10. Media Query — Mobile (≤680px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 680px) {
+  .cards .container {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-center {
+    padding: 0 18%;
+  }
+
+  .badges-row {
+    padding: 0 15%;
+  }
+}
