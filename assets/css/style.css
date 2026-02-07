@@ -49,14 +49,14 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
   font-family: var(--font-body);
   color: var(--color-text);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img {
@@ -548,7 +548,7 @@ img {
    -------------------------------------------------------------------------- */
 @media (max-width: 680px) {
   .label-hero {
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   .top-bar img,
@@ -572,14 +572,22 @@ img {
     max-width: 100%;
   }
 
-  .badges-area::before,
-  .badges-stripes {
-    width: calc(100% - 32px);
-  }
-
   .badges-area::before {
+    width: calc(100% - 32px);
     left: 16px;
     transform: none;
+  }
+
+  .badges-stripes {
+    width: calc(100% - 32px);
+    left: 16px;
+    transform: none;
+  }
+
+  .mid-section .side-stripes {
+    left: 8px;
+    right: 8px;
+    width: calc(100% - 16px);
   }
 
   .seeds-lt,
