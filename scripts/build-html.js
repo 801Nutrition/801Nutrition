@@ -26,13 +26,33 @@ function buildHtml() {
         .replace(/\s+/g, ' ')
         .trim();
 
-      return [
+      // Build srcset if multiple sizes exist, otherwise single source
+      let avifSrcset, webpSrcset, pngSrcset;
+      if (entry.srcset) {
+        avifSrcset = entry.srcset.map(v => `assets/images/${v.avif} ${v.width}w`).join(', ');
+        webpSrcset = entry.srcset.map(v => `assets/images/${v.webp} ${v.width}w`).join(', ');
+        pngSrcset = entry.srcset.map(v => `assets/images/${v.png} ${v.width}w`).join(', ');
+      } else {
+        avifSrcset = `assets/images/${entry.avif}`;
+        webpSrcset = `assets/images/${entry.webp}`;
+        pngSrcset = null;
+      }
+
+      const sizesAttr = entry.sizes ? ` sizes="${entry.sizes}"` : '';
+      const lines = [
         `${indent}<picture>`,
-        `${indent}  <source srcset="assets/images/${entry.avif}" type="image/avif" />`,
-        `${indent}  <source srcset="assets/images/${entry.webp}" type="image/webp" />`,
-        `${indent}  <img src="assets/images/${entry.png}" ${otherAttrs} width="${entry.width}" height="${entry.height}" />`,
-        `${indent}</picture>`,
-      ].join('\n');
+        `${indent}  <source srcset="${avifSrcset}"${sizesAttr} type="image/avif" />`,
+        `${indent}  <source srcset="${webpSrcset}"${sizesAttr} type="image/webp" />`,
+      ];
+      if (pngSrcset) {
+        // Multi-size: use srcset on the <img> fallback too
+        lines.push(`${indent}  <img srcset="${pngSrcset}"${sizesAttr} src="assets/images/${entry.png}" ${otherAttrs} width="${entry.width}" height="${entry.height}" />`);
+      } else {
+        lines.push(`${indent}  <img src="assets/images/${entry.png}" ${otherAttrs} width="${entry.width}" height="${entry.height}" />`);
+      }
+      lines.push(`${indent}</picture>`);
+
+      return lines.join('\n');
     }
   );
 
