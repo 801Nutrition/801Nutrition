@@ -347,6 +347,7 @@ img {
 .cards {
   padding: 60px 20px 80px;
   background: var(--color-cards-bg);
+  margin-top: -1px;
 }
 
 .cards .container {
