@@ -45,7 +45,7 @@
 }
 
 html {
-  background-color: var(--color-bg);
+  background-color: var(--color-copyright-bg);
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -57,6 +57,7 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   overflow-x: clip;
+  background-color: var(--color-bg);
 }
 
 img {
